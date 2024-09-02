@@ -52,6 +52,7 @@ form {
     position: absolute;
     top: 0;
     z-index: 3;
+    background-color: white;
 }
 
 @media (max-width:850px) {
