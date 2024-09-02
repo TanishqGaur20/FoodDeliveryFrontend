@@ -1,0 +1,55 @@
+.signup {
+    height: 100vh;
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.innerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 60%;
+}
+
+.right button {
+    transition: all .5s linear;
+}
+
+.right button:active {
+    scale: .8;
+}
+
+.left {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right {
+    height: 50%;
+    width: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 70%;
+}
+
+.toast {
+    position: absolute;
+    top: 0;
+    z-index: 3;
+}

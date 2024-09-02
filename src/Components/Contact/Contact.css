@@ -1,0 +1,210 @@
+.contact {
+    height: 180vh;
+    width: 100vw;
+    display: flex;
+    background-color: #e0f7fa;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Container */
+.contact-container {
+    padding: 40px 20px;
+    height: 90%;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 75vw;
+    margin: 0 auto;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.contact-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Intro text */
+.contact-intro {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #666;
+    font-size: 1.1em;
+    line-height: 1.5em;
+}
+
+/* Contact details and sections */
+.contact-details,
+.business-hours,
+.social-media,
+.feedback-form,
+.map {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Individual contact item */
+.contact-item {
+    margin-bottom: 20px;
+}
+
+.contact-item h3 {
+    font-size: 1.3em;
+    color: #222;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.contact-item p {
+    margin: 5px 0;
+    color: #444;
+    font-size: 1.1em;
+    line-height: 1.6em;
+}
+
+/* Business hours section */
+.business-hours h3 {
+    font-size: 1.3em;
+    color: #222;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.business-hours p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+/* Social media section */
+.social-media h3 {
+    font-size: 1.3em;
+    color: #222;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.social-media a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #4e8cca;
+    transition: background-color 0.5s linear;
+}
+
+.social-media a:hover {
+    background-color: #0073e6;
+}
+
+
+/* Feedback form section */
+.feedback-form h3 {
+    font-size: 1.3em;
+    color: #222;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.feedback-form a {
+    display: inline-block;
+    font-size: 1.1em;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.5s ease, color 0.3s ease;
+    background-color: #4e8cca;
+}
+
+.feedback-form a:hover {
+    background-color: #0073e6;
+}
+
+/* Map section */
+.map h3 {
+    font-size: 1.3em;
+    color: #222;
+    margin-bottom: 10px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.map iframe {
+    width: 100%;
+    height: 400px;
+    border-radius: 8px;
+    border: none;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .contact-title {
+        font-size: 2em;
+    }
+
+    .contact-intro,
+    .contact-item p,
+    .business-hours p,
+    .social-media a,
+    .feedback-form a {
+        font-size: 1em;
+    }
+
+    .social-media a,
+    .feedback-form a {
+        padding: 8px 10px;
+    }
+
+    .contact {
+        height: 180vh;
+        width: 100vw;
+        display: flex;
+        background-color: #e0f7fa;
+        justify-content: center;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    /* Container */
+    .contact-container {
+        padding: 60px 20px 20px 20px;
+        height: 90%;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        width: 90vw;
+        margin: 0 auto;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .social-media a {
+        margin-right: 15px;
+        font-size: 1.1em;
+        color: #0073e6;
+        text-decoration: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        background-color: transparent;
+        transition: background-color 0.5s ease, color 0.3s ease;
+    }
+}
+
+.bluep {
+    color: #0073e6 !important;
+}

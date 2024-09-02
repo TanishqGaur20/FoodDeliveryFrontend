@@ -1,0 +1,56 @@
+.mainOrderStatus {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #e0f7fa;
+    padding: 20px;
+    box-sizing: border-box;
+    text-transform: capitalize;
+}
+
+.mainOrderStatus h1 {
+    font-size: 2.5rem;
+    color: #00796b;
+    margin-bottom: 20px;
+}
+
+.orderTable {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    width: 90%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.orderRow {
+    display: contents;
+}
+
+.orderCell {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    font-size: 1rem;
+    color: #424242;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.orderCell.status {
+    color: #d32f2f;
+    font-weight: bold;
+}
+
+.orderRow:nth-child(even) .orderCell {
+    background-color: #f5f5f5;
+}
+
+.orderRow:nth-child(odd) .orderCell {
+    background-color: #fafafa;
+}

@@ -1,0 +1,156 @@
+.card {
+    height: 370px;
+    width: 270px;
+    display: flex;
+    justify-content: center;
+    border: none;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 10px;
+    transition: all .7s linear;
+    background-color: transparent;
+}
+
+.card:hover {
+    scale: 1.1;
+}
+
+.toast {
+    position: fixed;
+    top: 0;
+    background-color: white;
+    color: black;
+    text-shadow: none;
+}
+
+.card img {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+    height: 130px;
+    width: 100%;
+}
+
+.name_desc {
+    height: 112px;
+    width: 100%;
+    /* background-color: blue; */
+    color: rgb(0, 0, 0);
+}
+
+.name_desc p {
+    text-shadow: none;
+}
+
+.quan_price {
+    height: 38px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+select {
+    color: black;
+    text-transform: capitalize;
+}
+
+
+button {
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 15px;
+    margin-top: 15px;
+    background-color: rgba(64, 196, 185, 0.861);
+    text-transform: uppercase;
+    transition: .4s linear;
+}
+
+button:hover {
+    background-color: rgb(33, 184, 171);
+}
+
+
+button:active {
+    scale: .8;
+}
+
+p {
+    line-height: 17px;
+    color: rgb(89, 86, 86);
+    font-size: 17px;
+}
+
+span {
+    color: black;
+}
+
+@media (max-width:768px) {
+    .card {
+        height: 400px;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .card img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        height: 130px;
+        width: 100%;
+    }
+
+    .name_desc {
+        height: 112px;
+        width: 100%;
+        /* background-color: blue; */
+        color: rgb(0, 0, 0);
+    }
+
+    .name_desc p {
+        text-shadow: none;
+    }
+
+    .quan_price {
+        height: 38px;
+        width: 100%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    select {
+        color: black;
+        text-transform: capitalize;
+    }
+
+
+    button {
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        border-radius: 15px;
+        margin-top: 15px;
+        background-color: rgba(64, 196, 185, 0.861);
+        transition: .4s linear;
+    }
+
+    button:hover {
+        background-color: rgb(33, 184, 171);
+    }
+
+
+    button:active {
+        scale: .8;
+    }
+
+    p {
+        line-height: 17px;
+        color: rgb(89, 86, 86);
+        font-size: 17px;
+    }
+
+    span {
+        color: black;
+    }
+}

@@ -1,0 +1,89 @@
+.cart {
+    min-height: 100vh;
+    width: 100%;
+    background-color: #E0F7FA;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-transform: capitalize;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.cartHeading {
+    margin-top: 100px;
+
+    color: green;
+    font-size: 2rem;
+}
+
+.items {
+    padding: 20px;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.cart-item {
+    height: 350px;
+    width: 270px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: #ffffff;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item img {
+    height: 170px;
+    width: 250px;
+    object-fit: cover;
+}
+
+.btn-primary {
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+i {
+    cursor: pointer;
+}
+
+.cart-item i {
+    position: absolute;
+}
+
+.plus {
+    bottom: 5%;
+    font-size: 20px;
+    right: 30%;
+}
+
+.minus {
+    bottom: 5%;
+    font-size: 20px;
+    right: 20%;
+}
+
+.delete {
+    bottom: 5%;
+    font-size: 28px;
+    right: 5%;
+}
