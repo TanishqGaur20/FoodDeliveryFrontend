@@ -54,3 +54,37 @@
 .orderRow:nth-child(odd) .orderCell {
     background-color: #fafafa;
 }
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1200px) {
+    .orderTable {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .orderTable {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .orderTable {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .orderTable {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .orderCell {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+
+    .mainOrderStatus h1 {
+        font-size: 1.8rem;
+    }
+}

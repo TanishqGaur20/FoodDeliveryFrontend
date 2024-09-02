@@ -47,10 +47,10 @@ function OrderStatus() {
                 <div className="orderCell">{x.orderTime}</div>
                 <div
                   className={`orderCell  ${x.Status === "Out of delivery"
-                      ? "text-success"
-                      : x.Status === "Reject"
-                        ? "text-danger"
-                        : "text-primary"
+                    ? "text-success"
+                    : x.Status === "Reject"
+                      ? "text-danger"
+                      : "text-primary"
                     } status`}
                 >
                   {x.Status}
