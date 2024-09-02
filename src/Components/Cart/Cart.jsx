@@ -81,7 +81,7 @@ function Cart() {
         setData([])
         localStorage.removeItem('cartData')
 
-        await fetch('http://localhost:5000/cartData', {
+        await fetch(import.meta.env.VITE_API_URL + 'cartData', {
             headers: {
                 'Content-Type': 'application/json'
             },
