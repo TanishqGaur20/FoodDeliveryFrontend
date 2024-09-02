@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './AllUsers.css';
+import './Allusers.css';
 
 function AllUsers() {
     const [data, setData] = useState([]);
