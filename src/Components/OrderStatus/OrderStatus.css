@@ -76,12 +76,25 @@
 
 @media (max-width: 576px) {
     .orderTable {
-        grid-template-columns: repeat(2, 1fr);
+        display: block;
+        width: 100%;
+    }
+
+    .orderRow {
+        display: block;
     }
 
     .orderCell {
+        display: block;
+        width: 100%;
         padding: 10px;
         font-size: 0.9rem;
+        border: none;
+        /* Remove borders for a more compact look */
+    }
+
+    .orderCell:not(:last-child) {
+        border-bottom: 1px solid #e0e0e0;
     }
 
     .mainOrderStatus h1 {
