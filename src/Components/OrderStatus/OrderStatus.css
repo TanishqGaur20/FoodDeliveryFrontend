@@ -66,12 +66,19 @@
     .orderTable {
         grid-template-columns: repeat(5, 1fr);
     }
+    .orderRow {
+            margin-bottom: 25px;
+    }
 }
 
 @media (max-width: 768px) {
     .orderTable {
         grid-template-columns: repeat(4, 1fr);
     }
+    .orderRow {
+            margin-bottom: 25px;
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -81,7 +88,7 @@
     }
 
     .orderRow {
-        display: block;
+        display: block;    margin-bottom: 25px;
     }
 
     .orderCell {
