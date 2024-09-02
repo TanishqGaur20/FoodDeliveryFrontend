@@ -133,6 +133,9 @@ const Navbar = () => {
               <NavLink className="navlinks" to="/adminOrders">
                 Todays Orders
               </NavLink>
+              <NavLink className="navlinks" to="/allusers">
+                All Users
+              </NavLink>
               <NavLink className="navlinks" to="/addItem">
                 Add Item
               </NavLink>
