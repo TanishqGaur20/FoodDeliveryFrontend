@@ -53,6 +53,7 @@ form {
     top: 0;
     z-index: 3;
     background-color: white;
+    z-index: 3;
 }
 
 @media (max-width:850px) {
