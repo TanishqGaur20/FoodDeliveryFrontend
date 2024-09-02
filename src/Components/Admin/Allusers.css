@@ -2,7 +2,6 @@
     padding: 20px;
     max-width: 1000px;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
 }
 
 .all-users-container h2 {
@@ -59,11 +58,18 @@
 
     .users-table td {
         display: block;
-        text-align: right;
+        text-align: left;
+        /* Align the text to the left */
         font-size: 14px;
         border-bottom: 1px solid #dddddd;
         position: relative;
-        padding-left: 50%;
+        padding-left: 15px;
+        /* Reduced padding to ensure full-width display */
+        padding-right: 15px;
+        width: 100%;
+        /* Ensure the td takes full width */
+        box-sizing: border-box;
+
     }
 
     .users-table td::before {
