@@ -40,6 +40,44 @@
     border-bottom: 2px solid #009879;
 }
 
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    .users-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .users-table thead {
+        display: none;
+    }
+
+    .users-table tr {
+        display: block;
+        margin-bottom: 15px;
+    }
+
+    .users-table td {
+        display: block;
+        text-align: right;
+        font-size: 14px;
+        border-bottom: 1px solid #dddddd;
+        position: relative;
+        padding-left: 50%;
+    }
+
+    .users-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 50%;
+        padding-left: 15px;
+        font-weight: bold;
+        text-align: left;
+    }
+}
+
+/* Loader and Error Styles */
 .loader,
 .error {
     text-align: center;
