@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 import './Card.css'
+import CardShimmer from './CardShimmer';
 
 
 let cartDataArray = [];
@@ -89,8 +90,6 @@ function Card(props) {
 
     return (
         <>
-
-
             <div className='card'>
                 <img src={data.img} alt="" />
                 <div className='name_desc'>

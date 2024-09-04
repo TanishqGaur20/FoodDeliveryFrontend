@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Signup.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Signup() {
+
+  const loaderRef = useRef()
   const navigate = useNavigate();
   const [toast, settoast] = useState(false);
   const [userExistToast, setuserExistToast] = useState(false);
@@ -15,6 +17,14 @@ function Signup() {
     phone: "",
   });
 
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This makes the scroll smooth
+    });
+  }, [])
+
+
   function handleChange(e) {
     let { name, value } = e.target;
     setdata({
@@ -25,6 +35,7 @@ function Signup() {
 
   async function handlesubmit(e) {
     try {
+      loaderRef.current.style.display = 'block'
       const res = await fetch("https://fooddeliverybackend-tglk.onrender.com/signup", {
         method: "POST",
         headers: {
@@ -34,6 +45,9 @@ function Signup() {
       });
       const result = await res.json();
       console.log(result);
+      if (result) {
+        loaderRef.current.style.display = 'none'
+      }
 
       if (result.userExist) {
         // alert('exist')
@@ -81,6 +95,7 @@ function Signup() {
           />
         </div>
         <div className="right">
+          <span className="loader" ref={loaderRef}></span>
           <h1>New User Signup</h1>
           <form>
             {!otpToggle ? (
@@ -181,6 +196,7 @@ function Signup() {
               </>
             )}
           </form>
+          <p className="directLinkP">Already have an Account ...? <NavLink className='directLinkPNavlink' to='/login'>Login <i className="fa-solid fa-user-plus"></i></NavLink></p>
         </div>
       </div>
       <div

@@ -1,7 +1,9 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState, useEffect, useRef } from "react";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Login() {
+
+  const loaderRef = useRef()
   const [data, setdata] = useState({
     password: "",
     email: "",
@@ -17,9 +19,18 @@ function Login() {
       [name]: value,
     });
   }
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This makes the scroll smooth
+    });
+  }, [])
+
 
   async function handlesubmit(e) {
     try {
+      loaderRef.current.style.display = 'block'
+
       const res = await fetch("https://fooddeliverybackend-tglk.onrender.com/login", {
         headers: {
           "Content-Type": "application/json",
@@ -28,6 +39,9 @@ function Login() {
         body: JSON.stringify(data),
       });
       const result = await res.json();
+      if (result) {
+        loaderRef.current.style.display = 'none'
+      }
       console.log(result);
       if (res.ok) {
         setloginsuccessToast(true);
@@ -35,7 +49,7 @@ function Login() {
         setTimeout(() => {
           navigate("/");
           window.location.reload();
-        }, 2000);
+        }, 1000);
       } else {
         setlogindenyToast(true);
       }
@@ -54,6 +68,8 @@ function Login() {
           />
         </div>
         <div className="right">
+          <span className="loader" ref={loaderRef}></span>
+
           <h1>User Login</h1>
           <form>
             <div className="input-group mb-3">
@@ -95,6 +111,7 @@ function Login() {
               Submit
             </button>
           </form>
+          <p className="directLinkP">Don't have any Account ...? <NavLink className='directLinkPNavlink' to='/signup'>Signup <i className="fa-solid fa-user-plus"></i></NavLink></p>
         </div>
       </div>
       <div

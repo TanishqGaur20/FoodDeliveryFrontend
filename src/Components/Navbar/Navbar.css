@@ -33,9 +33,21 @@
 
 .navlinks {
     text-decoration: none;
-    color: white;
-    font-size: 3vw;
+    /* color: white; */
+    background: linear-gradient(45deg, #00ff6e, #d9ff00);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-size: 2.5vw;
     transition: .35s linear;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navlinks i {
+    margin-left: 15px;
+    font-size: 2vw;
+    color: #D6EFD8 !important;
 }
 
 .navlinks:hover {
@@ -72,7 +84,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     height: 3px;
-    background-color: black;
+    background-color: rgb(114, 97, 0);
     width: 70%;
 }
 
@@ -92,9 +104,9 @@
     }
 
     .slideBar {
-        height: 50vh;
-        width: 50%;
-        right: -50%;
+        height: 100vh;
+        width: 68%;
+        right: -80%;
     }
 
     .navSpan {
@@ -105,11 +117,17 @@
         font-size: 8vw;
     }
 
+    .navlinks i {
+        margin-left: 15px;
+        font-size: 6vw;
+        color: #D6EFD8 !important;
+    }
+
     .freeDelivery {
         height: 100px;
         width: 150px;
-        top: 5%;
-        left: 0%;
+        bottom: 15%;
+        right: 0%;
     }
 
 

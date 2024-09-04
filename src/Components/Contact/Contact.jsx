@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Contact.css';
 
 const Contact = () => {
+    useEffect(() => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // This makes the scroll smooth
+        });
+    }, [])
+
     return (
         <>
-            <div className="contact">
+            <div className="contact" id='contact'>
                 <div className="contact-container">
                     <h2 className="contact-title">Get in Touch with [Your Cafe's Name]</h2>
                     <p className="bluep contact-intro">

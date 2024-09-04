@@ -5,18 +5,28 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(https://cdn.pixabay.com/photo/2024/05/06/16/58/burger-8743791_1280.jpg);
+    background-size: cover;
 }
 
 .innerDiv {
     display: flex;
+    /* box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px; */
     justify-content: center;
     align-items: center;
     height: 80%;
-    width: 60%;
+    width: 80%;
 }
 
 .right button {
     transition: all .5s linear;
+    text-transform: capitalize;
+    font-weight: 500;
+    letter-spacing: 1px;
+    width: 50%;
+    background-color: rgb(4, 130, 130);
+    color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .right button:active {
@@ -31,13 +41,30 @@
     align-items: center;
 }
 
+.right h1 {
+    background: linear-gradient(45deg, #00ff6e, #d9ff00);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
 .right {
-    height: 50%;
+    height: 60%;
     width: 50%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-direction: column;
+    /* background-color: #00ff6e; */
+}
+
+.directLinkP {
+    color: white;
+    font-size: 20px;
+}
+
+.directLinkPNavlink {
+    color: rgb(255, 191, 0);
+    text-decoration: none;
 }
 
 form {
@@ -56,26 +83,117 @@ form {
     z-index: 3;
 }
 
+.loader {
+    display: none;
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.loader::before,
+.loader::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 48em;
+    height: 48em;
+    background-image:
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0),
+        radial-gradient(circle 10px, #FFF 100%, transparent 0);
+    background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
+        13em -13em, -13em -13em, 13em 13em, -13em 13em;
+    background-repeat: no-repeat;
+    font-size: 0.5px;
+    border-radius: 50%;
+    animation: blast 1s ease-in infinite;
+}
+
+.loader::after {
+    font-size: 1px;
+    background: #fff;
+    animation: bounce 1s ease-in infinite;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        font-size: 0.75px
+    }
+
+    50% {
+        font-size: 1.5px
+    }
+}
+
+@keyframes blast {
+
+    0%,
+    40% {
+        font-size: 0.5px;
+    }
+
+    70% {
+        opacity: 1;
+        font-size: 4px;
+    }
+
+    100% {
+        font-size: 6px;
+        opacity: 0;
+    }
+}
+
+
+
 @media (max-width:850px) {
+
+    .signup {
+        background-image: url(https://cdn.pixabay.com/photo/2022/05/11/07/10/porridge-7188630_1280.jpg);
+        background-size: cover;
+    }
+
     .innerDiv {
         display: flex;
         justify-content: center;
         align-items: center;
-        flex-direction: column;
-        height: 80%;
-        width: 80%;
+        height: 50%;
+        width: 90%;
+    }
+
+    input {
+        background-color: transparent !important;
+        color: white !important;
+    }
+
+    input::placeholder {
+        color: white !important;
     }
 
     .left {
-        height: 50%;
+        display: none;
+    }
+
+    .left img {
+        height: 90%;
         width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
     }
 
     .right {
-        height: 50%;
+        height: 100%;
+        padding-top: 25%;
+        padding-bottom: 5%;
         width: 100%;
         display: flex;
         justify-content: space-between;

@@ -1,0 +1,47 @@
+.about-developer-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.fullAboutDev {
+    margin-top: 100px;
+}
+
+.about-developer-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-developer-container h3,
+.about-developer-container h4 {
+    color: #555;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.about-developer-container p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.about-developer-container ul {
+    list-style-type: disc;
+    margin-left: 20px;
+}
+
+.about-developer-container ul li {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.about-developer-container strong {
+    color: #333;
+}

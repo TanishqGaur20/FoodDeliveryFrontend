@@ -12,6 +12,48 @@
     background-color: transparent;
 }
 
+.shimmerCard {
+    background-color: #f0f0f0;
+    gap: 5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.shimmerIMG {
+    height: 100px;
+    width: 100%;
+    border-radius: 15px;
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 60%;
+    left: -150%;
+    animation: shimmer-animation 3.5s infinite;
+
+}
+
+.shimmerCard h1 {
+    height: 160px;
+    border-radius: 15px;
+    width: 100%;
+    background-color: #e0e0e0;
+    position: absolute;
+    top: 10%;
+    left: -150%;
+    animation: shimmer-animation 3.5s infinite;
+}
+
+@keyframes shimmer-animation {
+    0% {
+        left: -150%;
+        /* Start shimmer off-screen */
+    }
+
+    100% {
+        left: 150%;
+        /* End shimmer off-screen */
+    }
+}
+
 .card:hover {
     scale: 1.1;
 }
@@ -84,6 +126,10 @@ p {
 
 span {
     color: black;
+}
+
+.toast {
+    z-index: 6;
 }
 
 @media (max-width:768px) {

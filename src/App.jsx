@@ -13,6 +13,7 @@ import Contact from './Components/Contact/Contact'
 import Footer from './Components/Footer/Footer'
 import AddItem from './Components/Admin/AddItem'
 import Allusers from './Components/Admin/Allusers'
+import AboutDeveloper from './Components/Developer/AboutDeveloper'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
         <Route path='/contact' element={<Contact />} />
         <Route path='/OrderStatus' element={<OrderStatus />} />
         <Route path='/addItem' element={<AddItem />} />
+        <Route path='/AboutDeveloper' element={<AboutDeveloper />} />
       </Routes>
       <Footer />
     </BrowserRouter>

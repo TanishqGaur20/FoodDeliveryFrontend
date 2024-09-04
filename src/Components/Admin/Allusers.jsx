@@ -35,7 +35,7 @@ function AllUsers() {
 
     return (
         <div className="all-users-container">
-            <h2>All Users</h2>
+            <h2>All Users <i class="fa-solid fa-users"></i></h2>
             <table className="users-table">
                 <thead>
                     <tr>

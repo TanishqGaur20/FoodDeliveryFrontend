@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import "./AddItem.css";
 
 const AddItem = () => {
@@ -14,6 +14,14 @@ const AddItem = () => {
     ],
     description: "",
   });
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This makes the scroll smooth
+    });
+  }, [])
+
 
   const handleChange = (e) => {
     const { id, value } = e.target;

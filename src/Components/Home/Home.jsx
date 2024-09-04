@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useLayoutEffect } from "react";
 import "./Home.css";
 import Card from "./Card";
+import CardShimmer from "./CardShimmer";
 
 function Home() {
   const [data, setdata] = useState([]);
@@ -54,7 +55,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="home">
+    <div className="home" id="home">
       <div className="hero">
         <img
           className="burger"
@@ -80,7 +81,7 @@ function Home() {
           </h5>
         </div>
       </div>
-      <div className="menuDiv">
+      <div className="menuDiv" id="menu">
         <label id="inputLabel">Search here</label>
         <div className="input-group">
           <div className="input-group-prepend">
@@ -98,6 +99,8 @@ function Home() {
             onChange={(e) => setsearchItem(e.target.value)}
           />
         </div>
+
+
         {searchItem ? (
           <>
             <div className="card-item">
@@ -111,32 +114,34 @@ function Home() {
             </div>
           </>
         ) : (
-          <>
-            <h1 className="categoryName">Biryani/Rice</h1>
-            <div className="card-item">
-              {data
-                .filter((food) => food.CategoryName === "Biryani/Rice")
-                .map((filteredFood) => (
-                  <Card key={filteredFood._id} food={filteredFood} />
-                ))}
-            </div>
-            <h1 className="categoryName">Pizza</h1>
-            <div className="card-item">
-              {data
-                .filter((food) => food.CategoryName === "Pizza")
-                .map((filteredFood) => (
-                  <Card key={filteredFood._id} food={filteredFood} />
-                ))}
-            </div>
-            <h1 className="categoryName">Starter</h1>
-            <div className="card-item">
-              {data
-                .filter((food) => food.CategoryName === "Starter")
-                .map((filteredFood) => (
-                  <Card key={filteredFood._id} food={filteredFood} />
-                ))}
-            </div>
-          </>
+          !data.length ? <div className="card-item"> <CardShimmer /></div> :
+            <>
+              <h1 className="categoryName">Biryani/Rice</h1>
+              <div className="card-item">
+
+                {data
+                  .filter((food) => food.CategoryName === "Biryani/Rice")
+                  .map((filteredFood) => (
+                    <Card key={filteredFood._id} food={filteredFood} />
+                  ))}
+              </div>
+              <h1 className="categoryName">Pizza</h1>
+              <div className="card-item">
+                {data
+                  .filter((food) => food.CategoryName === "Pizza")
+                  .map((filteredFood) => (
+                    <Card key={filteredFood._id} food={filteredFood} />
+                  ))}
+              </div>
+              <h1 className="categoryName">Starter</h1>
+              <div className="card-item">
+                {data
+                  .filter((food) => food.CategoryName === "Starter")
+                  .map((filteredFood) => (
+                    <Card key={filteredFood._id} food={filteredFood} />
+                  ))}
+              </div>
+            </>
         )}
       </div>
     </div>

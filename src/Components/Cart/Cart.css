@@ -1,7 +1,8 @@
 .cart {
     min-height: 100vh;
     width: 100%;
-    background-color: #E0F7FA;
+    background-image: url(https://cdn.pixabay.com/photo/2014/06/11/17/00/food-366875_1280.jpg);
+    background-size: cover;
     color: black;
     display: flex;
     justify-content: center;
@@ -30,11 +31,11 @@
 }
 
 .cart-item {
-    height: 350px;
-    width: 270px;
+    height: 270px;
+    width: 220px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     flex-direction: column;
     border-radius: 15px;
     padding: 10px;
@@ -44,22 +45,29 @@
 }
 
 .cart-item img {
-    height: 170px;
-    width: 250px;
+    height: 120px;
+    width: 100%;
     object-fit: cover;
 }
 
-.btn-primary {
-    background-color: #007BFF;
+.cart-item h2 {
+    font-size: 20px;
+}
+
+.cartbtn {
+    background-color: #2d67a5;
     color: white;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: all 1s ease;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.btn-primary:hover {
-    background-color: #0056b3;
+.cartbtn:hover {
+    color: white;
+    background-color: #001e3e;
 }
 
 i {
@@ -72,18 +80,54 @@ i {
 
 .plus {
     bottom: 5%;
-    font-size: 20px;
+    font-size: 18px;
     right: 30%;
 }
 
 .minus {
     bottom: 5%;
-    font-size: 20px;
+    font-size: 18px;
     right: 20%;
 }
 
 .delete {
     bottom: 5%;
-    font-size: 28px;
+    font-size: 24px;
     right: 5%;
+}
+
+.emptyCartDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.emptycartImg {
+    height: 400px;
+    width: 400px;
+}
+
+@media (max-width:850px) {
+    .cart {
+        background-image: url(https://cdn.pixabay.com/photo/2016/12/06/18/27/cheese-1887233_1280.jpg);
+    }
+
+    .emptyCartDiv {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .emptyCartDiv h1 {
+        text-align: center;
+        background-color: #0b4a74aa;
+    }
+
+    .emptycartImg {
+        height: 300px;
+        width: 300px;
+    }
+
 }

@@ -8,6 +8,13 @@ const AdminOrders = () => {
   const [allDBfeedData, setAllDBfeedData] = useState([]);
 
   useEffect(() => {
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth' // This makes the scroll smooth
+    });
+
+
     async function getOrderData() {
       try {
         // Fetch order data

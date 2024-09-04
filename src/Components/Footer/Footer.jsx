@@ -2,6 +2,13 @@ import React from 'react';
 import './Footer.css';
 
 const Footer = () => {
+
+    function scrolltop() {
+        window.scrollTo({
+            top: 0, behavior: 'smooth'
+        })
+    }
+
     return (
         <footer className="footer">
             <div className="footer-container">
@@ -11,9 +18,9 @@ const Footer = () => {
                         Experience the taste of home at [Your Cafe's Name], where every meal is crafted with love and care. Whether you're dining in or enjoying our food at home, we're here to serve you.
                     </p>
                     <div className="footer-socials">
-                        <a href="[Your Facebook Link]" className="social-link"><i className="fab fa-facebook-f"></i></a>
-                        <a href="[Your Instagram Link]" className="social-link"><i className="fab fa-instagram"></i></a>
-                        <a href="[Your Twitter Link]" className="social-link"><i className="fab fa-twitter"></i></a>
+                        <a href="https://tanishqgaur20.github.io/TANISHQ_PORTFOLIO_/" target='_blank' className="social-link"><i class="fa-solid fa-user-tie"></i></a>
+                        <a href="https://www.instagram.com/_.tanishq.gaur._/" target='_blank' className="social-link"><i className="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/in/tanishq-gaur-14530a251/" target='_blank' className="social-link"><i class="fa-brands fa-linkedin"></i></a>
                     </div>
                 </div>
 
@@ -22,14 +29,15 @@ const Footer = () => {
                     <ul>
                         <li><a href="#home">Home</a></li>
                         <li><a href="#menu">Menu</a></li>
-                        <li><a href="#contact">Contact Us</a></li>
-                        <li><a href="#about">About Us</a></li>
+                        {/* <li><a href="#contact">Contact Us</a></li>
+                        <li><a href="#about">About Us</a></li> */}
                     </ul>
                 </div>
 
             </div>
             <div className="footer-bottom">
                 <p>&copy; 2024 [Your Cafe's Name] | Designed by Tanishq Gaur</p>
+                <i class="fa-solid fa-bolt scrollY" onClick={scrolltop}></i>
             </div>
         </footer>
     );

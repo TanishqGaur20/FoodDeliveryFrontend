@@ -34,7 +34,7 @@ const Navbar = () => {
         duration: 0.6,
       });
       gsap.fromTo(
-        ".slideBar h3",
+        ".navlinks",
         {
           x: 400,
           opacity: 1,
@@ -59,8 +59,22 @@ const Navbar = () => {
         transform: "translate(-50%,6px) rotate(0deg)",
         duration: 0.6,
       });
-      gsap.to(slideBarRef.current, {
-        right: "-32%",
+      const timeline = gsap.timeline()
+      timeline.fromTo(
+        ".navlinks",
+        {
+          x: 0,
+          opacity: 1,
+        },
+        {
+          x: 400,
+          opacity: 1,
+          duration: 0.6,
+          stagger: 0.1,
+        }
+      );
+      timeline.to(slideBarRef.current, {
+        right: "-62%",
         opacity: 0,
         duration: 1,
       });
@@ -123,31 +137,32 @@ const Navbar = () => {
             alt=""
           />
           <NavLink to="/" className="navlinks">
-            Home
+            Home <i class="fa-solid fa-house"></i>
           </NavLink>
           <NavLink to="/contact" className="navlinks">
-            Contact
+            Contact <i class="fa-regular fa-address-card"></i>
           </NavLink>
           {isAdmin && (
             <>
               <NavLink className="navlinks" to="/adminOrders">
-                Todays Orders
+                Todays Orders <i class="fa-solid fa-bowl-food"></i>
               </NavLink>
               <NavLink className="navlinks" to="/allusers">
-                All Users
+                All Users <i class="fa-solid fa-users"></i>
               </NavLink>
               <NavLink className="navlinks" to="/addItem">
-                Add Item
+                Add Item <i class="fa-solid fa-circle-plus"></i>
               </NavLink>
             </>
           )}
+          <NavLink className='navlinks' to='/AboutDeveloper'>About Dev. <i class="fa-solid fa-code"></i></NavLink>
           {!userDets ? (
             <>
               <NavLink className="navlinks" to="/signup">
-                Signup
+                Signup <i class="fa-solid fa-user-plus"></i>
               </NavLink>
               <NavLink to="/login" className="navlinks">
-                Login
+                Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
               </NavLink>
             </>
           ) : (
@@ -155,15 +170,15 @@ const Navbar = () => {
               {!isAdmin && (
                 <>
                   <NavLink className="navlinks" to="/OrderStatus">
-                    Order Status
+                    Order Status <i class="fa-regular fa-clock"></i>
                   </NavLink>
                   <NavLink className="navlinks" to="/cart">
-                    Cart
+                    Cart <i class="fa-solid fa-cart-plus"></i>
                   </NavLink>
                 </>
               )}
               <NavLink to="/" onClick={handleLogout} className="navlinks">
-                Logout
+                Logout <i class="fa-solid fa-person-running"></i>
               </NavLink>
             </>
           )}
