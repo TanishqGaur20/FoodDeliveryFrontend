@@ -139,6 +139,14 @@ span {
         padding: 10px;
     }
 
+    .shimmerCard {
+        background-color: #f0f0f0;
+        gap: 15px;
+        position: relative;
+        overflow: hidden;
+    }
+
+
     .card img {
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
