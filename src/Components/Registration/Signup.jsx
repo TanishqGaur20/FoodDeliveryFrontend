@@ -255,32 +255,32 @@ function Signup() {
         </div>
         <div className="toast-body">Email is already Registered</div>
 
-
-        <div
-          className={`toast ${validationToast ? 'show' : ''}`}
-          role="alert"
-          aria-live="assertive"
-          aria-atomic="true"
-        >
-          <div className="toast-header">
-            <img
-              src="https://tse2.mm.bing.net/th?id=OIP.X96HZ4SK_kq-kETk2FxNXAHaHa&pid=Api&P=0&h=25"
-              className="rounded me-2"
-              alt="..."
-            />
-            <strong className="me-auto">Alert 🔔</strong>
-            <small>Just Now</small>
-            <button
-              type="button"
-              className="btn-close"
-              data-bs-dismiss="toast"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div className="toast-body">Please fill all the fields before submition ✅</div>
-        </div>
-
       </div>
+
+      <div
+        className={`toast ${validationToast ? 'show' : ''}`}
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div className="toast-header">
+          <img
+            src="https://tse2.mm.bing.net/th?id=OIP.X96HZ4SK_kq-kETk2FxNXAHaHa&pid=Api&P=0&h=25"
+            className="rounded me-2"
+            alt="..."
+          />
+          <strong className="me-auto">Alert 🔔</strong>
+          <small>Just Now</small>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="toast-body">Please fill all the fields before submition ✅</div>
+      </div>
+
     </div >
   );
 }
