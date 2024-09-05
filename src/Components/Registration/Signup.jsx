@@ -37,7 +37,7 @@ function Signup() {
   async function handlesubmit(e) {
     try {
 
-      if (!data.name || !data.phone || !data.email || !data.password ||) {
+      if (!data.name || !data.phone || !data.email || !data.password) {
         setvalidationToast(true)
       }
 
