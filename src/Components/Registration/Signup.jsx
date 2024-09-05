@@ -38,7 +38,9 @@ function Signup() {
     try {
 
       if (!data.name || !data.phone || !data.email || !data.password) {
+        console.log(data.name, data.phone, data.email, data.password);
         setvalidationToast(true)
+        return;
       }
 
       loaderRef.current.style.display = 'block'
