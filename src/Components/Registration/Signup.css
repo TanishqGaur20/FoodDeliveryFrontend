@@ -86,6 +86,7 @@ form {
 .loader {
     display: none;
     width: 48px;
+    z-index: 10;
     height: 48px;
     position: absolute;
     top: 50%;
@@ -103,14 +104,14 @@ form {
     width: 48em;
     height: 48em;
     background-image:
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0),
-        radial-gradient(circle 10px, #FFF 100%, transparent 0);
+        radial-gradient(circle 10px, #f40000 100%, transparent 0),
+        radial-gradient(circle 10px, #00e5ff 100%, transparent 0),
+        radial-gradient(circle 10px, #00f7ff 100%, transparent 0),
+        radial-gradient(circle 10px, #ff0000 100%, transparent 0),
+        radial-gradient(circle 10px, #0000ff 100%, transparent 0),
+        radial-gradient(circle 10px, #00229b 100%, transparent 0),
+        radial-gradient(circle 10px, #0cb900 100%, transparent 0),
+        radial-gradient(circle 10px, #00ab53 100%, transparent 0);
     background-position: 0em -18em, 0em 18em, 18em 0em, -18em 0em,
         13em -13em, -13em -13em, 13em 13em, -13em 13em;
     background-repeat: no-repeat;
@@ -123,6 +124,34 @@ form {
     font-size: 1px;
     background: #fff;
     animation: bounce 1s ease-in infinite;
+}
+
+.otpDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.otpInput {
+    width: 50px;
+    font-size: 21px;
+    height: 50px;
+    padding: 10px 17px;
+    background-color: white !important;
+    border-radius: 50%;
+    color: black !important;
+    outline: none;
+    border: 3px solid rgb(102, 100, 100);
+}
+
+.verificationHeading {
+    color: white;
+}
+
+
+.otpInput:focus {
+    border: 3px solid #020282;
 }
 
 @keyframes bounce {
@@ -160,7 +189,7 @@ form {
 @media (max-width:850px) {
 
     .signup {
-        background-image: url(https://cdn.pixabay.com/photo/2022/05/11/07/10/porridge-7188630_1280.jpg);
+        background-image: url(https://cdn.pixabay.com/photo/2013/04/01/12/46/hot-pepper-98945_1280.jpg);
         background-size: cover;
     }
 

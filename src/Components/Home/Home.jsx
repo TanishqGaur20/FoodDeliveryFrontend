@@ -3,9 +3,11 @@ import "./Home.css";
 import Card from "./Card";
 import CardShimmer from "./CardShimmer";
 
-function Home() {
+
+function Home({ flag }) {
   const [data, setdata] = useState([]);
   const [searchItem, setsearchItem] = useState("");
+
 
   async function getData() {
     const res = await fetch('https://fooddeliverybackend-tglk.onrender.com/', {
@@ -57,6 +59,7 @@ function Home() {
   return (
     <div className="home" id="home">
       <div className="hero">
+
         <img
           className="burger"
           src="https://static.vecteezy.com/system/resources/previews/025/065/315/original/fast-food-meal-with-ai-generated-free-png.png"
@@ -148,4 +151,6 @@ function Home() {
   );
 }
 
+
 export default Home;
+

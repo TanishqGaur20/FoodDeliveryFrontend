@@ -10,7 +10,10 @@ function Signup() {
   const [toast, settoast] = useState(false);
   const [userExistToast, setuserExistToast] = useState(false);
   const [otpToggle, setotpToggle] = useState(false);
-  const [otp, setotp] = useState();
+  const [otp, setotp] = useState({
+    otp1: '', otp2: '', otp3: '', otp4: ''
+  });
+  const [verifyOtp, setverifyOtp] = useState(false)
   const [data, setdata] = useState({
     name: "",
     password: "",
@@ -25,7 +28,24 @@ function Signup() {
     });
   }, [])
 
+  function changeOtp(e) {
+    const { name, value } = e.target
+    setotp((preval) => {
+      return {
+        ...preval, [name]: value
+      }
+    })
+    if (value.length === 1) {
+      var modName = name.slice(0, 3)
+      var index = parseInt(name.slice(3)) + 1;
 
+      const nextInput = document.querySelector(`.${modName}${index}`)
+      if (nextInput) {
+        nextInput.focus();
+      }
+    }
+
+  }
   function handleChange(e) {
     let { name, value } = e.target;
     setdata({
@@ -36,10 +56,15 @@ function Signup() {
 
   async function handlesubmit(e) {
     try {
+      setvalidationToast(false);
 
       if (!data.name || !data.phone || !data.email || !data.password) {
+        console.log(validationToast);
         console.log(data.name, data.phone, data.email, data.password);
-        setvalidationToast(true)
+
+        setTimeout(() => {
+          setvalidationToast(true);
+        }, 100);
         return;
       }
 
@@ -74,19 +99,29 @@ function Signup() {
 
   async function handlesubmitOTP() {
     try {
+      setverifyOtp(false)
+      const concatinatedOtp = otp.otp1 + otp.otp2 + otp.otp3 + otp.otp4
+      console.log(concatinatedOtp);
+
+      loaderRef.current.style.display = 'block'
       let res = await fetch(import.meta.env.VITE_API_URL + "otp", {
         headers: {
           "Content-Type": "application/json",
         },
         method: "POST",
-        body: JSON.stringify({ otp, data }),
+        body: JSON.stringify({ otp: concatinatedOtp, data }),
       });
 
       let result = await res.json();
+      if (result) {
+        loaderRef.current.style.display = 'none'
+      }
+      console.log(result);
+
       if (result.success) {
         navigate("/login");
       } else {
-        alert("incorrect OTP");
+        setverifyOtp(true)
       }
     } catch (error) {
       console.log("otp", error);
@@ -97,10 +132,13 @@ function Signup() {
     <div className="signup">
       <div className="innerDiv">
         <div className="left">
-          <img
-            src="https://cdni.iconscout.com/illustration/premium/thumb/female-web-developer-working-on-project-5691620-4759502.png"
-            alt="Signup Developer png"
-          />
+          {
+            !otpToggle ? <img
+              src="https://cdni.iconscout.com/illustration/premium/thumb/female-web-developer-working-on-project-5691620-4759502.png"
+              alt="Signup Developer png"
+            /> : <img src="https://cdn3d.iconscout.com/3d/premium/thumb/two-step-verification-5353044-4468776.png" alt="Signup Developer png" />
+          }
+
         </div>
         <div className="right">
           <span className="loader" ref={loaderRef}></span>
@@ -179,20 +217,12 @@ function Signup() {
               </>
             ) : (
               <>
-                <div className="input-group mb-3">
-                  <span className="input-group-text" id="basic-addon1">
-                    OTP
-                  </span>
-                  <input
-                    type="number"
-                    name="otp"
-                    value={otp}
-                    className="form-control"
-                    onChange={(e) => setotp(e.target.value)}
-                    placeholder="Password"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  />
+                <h3 className="verificationHeading">Enter verification code </h3>
+                <div className="otpDiv mb-3">
+                  <input name="otp1" maxLength='1' value={otp.opt1} autoComplete="off" className="otpInput otp1" onChange={changeOtp} aria-label="Username" aria-describedby="basic-addon1" />
+                  <input name="otp2" maxLength='1' value={otp.otp2} autoComplete="off" className="otpInput otp2" onChange={changeOtp} aria-label="Username" aria-describedby="basic-addon1" />
+                  <input name="otp3" maxLength='1' value={otp.otp3} autoComplete="off" className="otpInput otp3" onChange={changeOtp} aria-label="Username" aria-describedby="basic-addon1" />
+                  <input name="otp4" maxLength='1' value={otp.otp4} autoComplete="off" className="otpInput otp4" onChange={changeOtp} aria-label="Username" aria-describedby="basic-addon1" />
                 </div>
                 <button
                   type="button"
@@ -253,7 +283,7 @@ function Signup() {
             aria-label="Close"
           ></button>
         </div>
-        <div className="toast-body">Email is already Registered</div>
+        <div className="toast-body">Email is already Registered... Try to Login</div>
 
       </div>
 
@@ -279,6 +309,30 @@ function Signup() {
           ></button>
         </div>
         <div className="toast-body">Please fill all the fields before submition ✅</div>
+      </div>
+
+      <div
+        className={`toast ${verifyOtp ? 'show' : ''}`}
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div className="toast-header">
+          <img
+            src="https://tse2.mm.bing.net/th?id=OIP.X96HZ4SK_kq-kETk2FxNXAHaHa&pid=Api&P=0&h=25"
+            className="rounded me-2"
+            alt="..."
+          />
+          <strong className="me-auto">Alert 🔔</strong>
+          <small>Just Now</small>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="toast-body">Incorrect OTP</div>
       </div>
 
     </div >

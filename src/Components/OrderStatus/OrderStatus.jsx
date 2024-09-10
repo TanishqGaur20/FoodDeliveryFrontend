@@ -58,7 +58,10 @@ function OrderStatus() {
               </div>
             ))
         ) : (
-          <p>No orders found</p>
+          <div className="empty">
+            <h3>No Orders <i className="timerIcon fa-solid fa-hourglass"></i></h3>
+            <img src="https://cdni.iconscout.com/illustration/premium/thumb/empty-cart-2130356-1800917.png" alt="" />
+          </div>
         )}
       </div>
     </div>

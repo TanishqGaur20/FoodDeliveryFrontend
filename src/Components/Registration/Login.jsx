@@ -39,9 +39,11 @@ function Login() {
         body: JSON.stringify(data),
       });
       const result = await res.json();
+
       if (result) {
         loaderRef.current.style.display = 'none'
       }
+
       console.log(result);
       if (res.ok) {
         setloginsuccessToast(true);
@@ -50,8 +52,12 @@ function Login() {
           navigate("/");
           window.location.reload();
         }, 1000);
+
       } else {
-        setlogindenyToast(true);
+        setloginsuccessToast(false);
+        setTimeout(() => {
+          setlogindenyToast(true);
+        }, 100);
       }
     } catch (error) {
       console.log(error);

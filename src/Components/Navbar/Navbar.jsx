@@ -11,6 +11,26 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [userDets, setUserDets] = useState(null);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [confirmLogoutToggle, setconfirmLogoutToggle] = useState(false)
+  const [logoutConfirmOrNot, setlogoutConfirmOrNot] = useState()
+
+
+
+
+  useEffect(() => {
+    setconfirmLogoutToggle(false)
+    if (logoutConfirmOrNot) {
+      localStorage.removeItem("userDetails");
+      localStorage.removeItem("cartData");
+      setUserDets(null);
+      navigate("/");
+      window.location.reload();
+    }
+    else {
+      return
+    }
+
+  }, [logoutConfirmOrNot])
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -42,7 +62,8 @@ const Navbar = () => {
         {
           x: 0,
           opacity: 1,
-          duration: 0.6,
+          delay: .5,
+          duration: 0.2,
           stagger: 0.1,
         }
       );
@@ -69,25 +90,19 @@ const Navbar = () => {
         {
           x: 400,
           opacity: 1,
-          duration: 0.6,
+          duration: 0.2,
           stagger: 0.1,
         }
       );
       timeline.to(slideBarRef.current, {
-        right: "-62%",
+        right: "-100%",
         opacity: 0,
-        duration: 1,
+        duration: .5,
       });
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("userDetails");
-    localStorage.removeItem("cartData");
-    setUserDets(null);
-    navigate("/");
-    window.location.reload();
-  };
+
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("userDetails")) || null;
@@ -115,6 +130,14 @@ const Navbar = () => {
   });
   return (
     <div className="Navbar">
+      <div style={{ display: confirmLogoutToggle ? 'flex' : '' }} className="confirmLogoutDiv">
+        <img src="https://clipground.com/images/disclaimer-png-3.png" alt="" />
+        <h3>Are you sure , you want to <span style={{ color: 'red' }}>Logout</span> </h3>
+        <div>
+          <button onClick={() => setlogoutConfirmOrNot(true)} >Yes</button>
+          <button onClick={() => setlogoutConfirmOrNot(false)}>No</button>
+        </div>
+      </div>
       <NavLink to="/">
         <img
           className="logo"
@@ -123,12 +146,15 @@ const Navbar = () => {
         />
       </NavLink>
 
-      <div className="menuDivs" onClick={handleMenuToggle}>
-        <h1 className="line1" ref={line1Ref}></h1>
-        <h1 className="line2" ref={line2Ref}></h1>
-        <h1 className="line3" ref={line3Ref}></h1>
-      </div>
+      <div className="imgAndMenuIcon">
+        <img className="rotateimgNavbar" src="https://static.vecteezy.com/system/resources/previews/013/078/044/original/gold-leaves-circle-frame-with-pink-flower-free-png.png" alt="" />
 
+        <div className="menuDivs" onClick={handleMenuToggle}>
+          <h1 className="line1" ref={line1Ref}></h1>
+          <h1 className="line2" ref={line2Ref}></h1>
+          <h1 className="line3" ref={line3Ref}></h1>
+        </div>
+      </div>
       <div className="slideBar" ref={slideBarRef}>
         <div className="navSpan">
           <img
@@ -137,32 +163,32 @@ const Navbar = () => {
             alt=""
           />
           <NavLink to="/" className="navlinks">
-            Home <i class="fa-solid fa-house"></i>
+            Home <i className="fa-solid fa-house"></i>
           </NavLink>
           <NavLink to="/contact" className="navlinks">
-            Contact <i class="fa-regular fa-address-card"></i>
+            Contact <i className="fa-regular fa-address-card"></i>
           </NavLink>
           {isAdmin && (
             <>
               <NavLink className="navlinks" to="/adminOrders">
-                Todays Orders <i class="fa-solid fa-bowl-food"></i>
+                Todays Orders <i className="fa-solid fa-bowl-food"></i>
               </NavLink>
               <NavLink className="navlinks" to="/allusers">
-                All Users <i class="fa-solid fa-users"></i>
+                All Users <i className="fa-solid fa-users"></i>
               </NavLink>
               <NavLink className="navlinks" to="/addItem">
-                Add Item <i class="fa-solid fa-circle-plus"></i>
+                Add Item <i className="fa-solid fa-circle-plus"></i>
               </NavLink>
             </>
           )}
-          <NavLink className='navlinks' to='/AboutDeveloper'>About Dev. <i class="fa-solid fa-code"></i></NavLink>
+          <NavLink className='navlinks' to='/AboutDeveloper'>About Dev. <i className="fa-solid fa-code"></i></NavLink>
           {!userDets ? (
             <>
               <NavLink className="navlinks" to="/signup">
-                Signup <i class="fa-solid fa-user-plus"></i>
+                Signup <i className="fa-solid fa-user-plus"></i>
               </NavLink>
               <NavLink to="/login" className="navlinks">
-                Login <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Login <i className="fa-solid fa-arrow-right-to-bracket"></i>
               </NavLink>
             </>
           ) : (
@@ -170,15 +196,15 @@ const Navbar = () => {
               {!isAdmin && (
                 <>
                   <NavLink className="navlinks" to="/OrderStatus">
-                    Order Status <i class="fa-regular fa-clock"></i>
+                    Order Status <i className="fa-regular fa-clock"></i>
                   </NavLink>
                   <NavLink className="navlinks" to="/cart">
-                    Cart <i class="fa-solid fa-cart-plus"></i>
+                    Cart <i className="fa-solid fa-cart-plus"></i>
                   </NavLink>
                 </>
               )}
-              <NavLink to="/" onClick={handleLogout} className="navlinks">
-                Logout <i class="fa-solid fa-person-running"></i>
+              <NavLink to="/" onClick={() => setconfirmLogoutToggle(true)} className="navlinks text-danger">
+                Logout <i className="fa-solid fa-person-running"></i>
               </NavLink>
             </>
           )}

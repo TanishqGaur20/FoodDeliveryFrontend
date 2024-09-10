@@ -14,40 +14,86 @@
 
 .slideBar {
     height: 100vh;
-    background-color: rgba(0, 0, 0, 0.498);
+    background-color: rgb(153, 188, 207);
     width: 28%;
     position: absolute;
     top: 0;
     right: -32%;
     z-index: 8;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-    padding: 10vw 2vw;
+    padding: 10vw 1vw;
 }
 
 .navSpan {
     display: flex;
     justify-content: center;
-    align-items: start;
     flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
+    gap: 10px;
 }
 
 .navlinks {
     text-decoration: none;
-    /* color: white; */
-    background: linear-gradient(45deg, #00ff6e, #d9ff00);
-    -webkit-background-clip: text;
-    color: transparent;
+    color: black;
+    width: 100%;
+    background-color: white;
     font-size: 2.5vw;
-    transition: .35s linear;
+    transition: .15s linear;
     display: flex;
-    justify-content: center;
+    justify-content: start;
+    padding: 0px 15px;
     align-items: center;
+}
+
+.imgAndMenuIcon {
+    position: relative;
+}
+
+.rotateimgNavbar {
+    z-index: 9;
+    position: absolute;
+    /* background-color: #1aa926; */
+    height: 120px;
+    width: 135px;
+    top: -50px;
+    left: -55px;
+    padding-right: 15px;
+    animation: rotatingimageInNav 3s linear infinite;
+}
+
+@keyframes rotatingimageInNav {
+    0% {
+        transform: rotateZ(0deg);
+    }
+
+    25% {
+        transform: rotateZ(80deg);
+    }
+
+    50% {
+        transform: rotateZ(160deg);
+    }
+
+    75% {
+        transform: rotateZ(240deg);
+    }
+
+    100% {
+        transform: rotateZ(360deg);
+    }
+}
+
+
+.navlinks:hover {
+    background-color: gray;
+    color: white;
 }
 
 .navlinks i {
     margin-left: 15px;
     font-size: 2vw;
-    color: #D6EFD8 !important;
+    color: #26be33 !important;
 }
 
 .navlinks:hover {
@@ -103,10 +149,21 @@
         /* background-color: red; */
     }
 
+    .rotateimgNavbar {
+        height: 100px;
+        width: 115px;
+        top: -40px;
+        left: -45px;
+    }
+
     .slideBar {
         height: 100vh;
-        width: 68%;
-        right: -80%;
+        width: 100%;
+        display: flex;
+        padding: 20vw 2vw;
+        justify-content: center;
+        align-items: start;
+        right: -100%;
     }
 
     .navSpan {
@@ -120,7 +177,7 @@
     .navlinks i {
         margin-left: 15px;
         font-size: 6vw;
-        color: #D6EFD8 !important;
+        color: #1aa926 !important;
     }
 
     .freeDelivery {
