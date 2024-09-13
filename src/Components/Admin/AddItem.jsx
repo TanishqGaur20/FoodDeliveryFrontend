@@ -46,6 +46,13 @@ const AddItem = () => {
   };
 
   const handleSubmit = async (e) => {
+
+    if (!formData.CategoryName || !formData.name || !formData.img || !formData.options.half || !formData.options.full || !formData.description) {
+      const toastEl = document.querySelector(".toast2");
+      const toast = new bootstrap.Toast(toastEl); // Initialize toast
+      toast.show(); // Show the toast
+      return
+    }
     console.log("Form Data:", formData);
 
     try {
@@ -55,6 +62,8 @@ const AddItem = () => {
         body: JSON.stringify({ formData }),
       });
       setFormData({});
+      console.log('added item');
+
       const toastEl = document.querySelector(".toast1");
       const toast = new bootstrap.Toast(toastEl); // Initialize toast
       toast.show(); // Show the toast
@@ -87,6 +96,30 @@ const AddItem = () => {
           ></button>
         </div>
         <div className="toast-body">Item Added to Menu ! 🛒</div>
+      </div>
+
+      <div
+        className="toast toast2"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div className="toast-header">
+          <img
+            src="https://tse2.mm.bing.net/th?id=OIP.bg6GBJIZwCBZ8cxmO0OPXQHaHx&pid=Api&P=0&h=30"
+            className="rounded me-2"
+            alt="..."
+          />
+          <strong className="me-auto">Fill all the fields </strong>
+          <small>Just Now</small>
+          <button
+            type="button"
+            className="btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div className="toast-body">Fill all the Details Below before Submission !! 🛒</div>
       </div>
 
       <div className="fulladdMenuForm">

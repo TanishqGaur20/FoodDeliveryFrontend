@@ -37,7 +37,7 @@ function Card(props) {
             stagger: .35,
             y: '100px',
             scrollTrigger: {
-                trigger: '.menuDiv',
+                trigger: '.card',
                 start: '0% 90%',
                 end: '85% 80%',
                 // markers: true,
